@@ -1,16 +1,17 @@
-// console.log('Starting notes');
-//
-// console.log(module);
+var addNote = (title, body) => {
+  console.log('Adding Note', title, body);
+}
 
-module.exports.age = 23;
+var getAll = () => {
+  console.log('Getting all notes');
+}
+
+var getNote = (title) => {
+  console.log('Reading', title);
+}
 
 module.exports = {
-  addNote: () => {
-    console.log('addNote');
-    return 'New note';
-  },
-  add: (a, b) => {
-    return a + b;
-  }
-
+  addNote,
+  getAll,
+  getNote
 }
