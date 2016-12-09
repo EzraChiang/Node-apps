@@ -28,7 +28,7 @@ var addNote = (title, body) => {
 };
 
 var getAll = () => {
-  console.log('Getting all notes');
+  return fetchNotes();
 };
 
 var getNote = (title) => {
@@ -43,7 +43,9 @@ var removeNote = (title) => {
   saveNotes(filteredNotes);
 };
 
+
 var logNote = (note) => {
+  debugger;
   console.log('--');
   console.log(`Title: ${note.title}`);
   console.log(`Body: ${note.body}`);
