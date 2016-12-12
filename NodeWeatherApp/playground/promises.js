@@ -1,4 +1,10 @@
-var somePromise = new Promise((resolve,reject) => {
+var asyncAdd = (a,b) => {
+  return new Promise((resolve, reject) => {
+
+  });
+};
+
+var somePromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     // resolve('Hey. It worked!');
     reject('Unable to fulfill promise');
