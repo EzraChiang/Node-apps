@@ -10,6 +10,13 @@ it('should add two numbers', () => {
 
 });
 
+it('it should asyncAdd two numbers', (done) => {
+  utils.asyncAdd(5, 4, (sum) => {
+    expect(sum).toBe(9).toBeA('number');
+    done();
+  });
+});
+
 it('should square two numbers', () => {
   var res = utils.square(5);
 
@@ -17,6 +24,14 @@ it('should square two numbers', () => {
     .toBe(25)
     .toBeA('number');
 
+});
+
+
+it('it should asyncAdd square a number', (done) => {
+  utils.asyncSquare(4, (square) => {
+    expect(square).toBe(16).toBeA('number');
+    done();
+  });
 });
 
 it('should expect some values', () => {
