@@ -19,12 +19,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs', {
-    pageTitle: 'maintenance page',
-    message: "We'll be right back"
-  });
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs', {
+//     pageTitle: 'maintenance page',
+//     message: "We'll be right back"
+//   });
+// });
 //the order of app.use matters! Goes by order
 app.use(express.static(__dirname + '/public'));
 
@@ -47,6 +47,13 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About Page'
+   });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Portfolio Page',
+    myName: 'Ezra Chiang'
    });
 });
 
