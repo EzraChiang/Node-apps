@@ -15,6 +15,31 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   }
   console.log('Connect to MongoDb Server');
 
+  // db.collection('Todos').find({
+  //   _id: new ObjectID('5852faba21e79d18d40c3f0b')
+  // }).toArray().then((docs) => {
+  //   console.log('Todos');
+  //   console.log(JSON.stringify(docs, undefined, 2));
+  // }, (err) => {
+  //   console.log('Unable to fetch Todos', err);
+  // });
+
+  db.collection('Users').find({
+    name: 'Ezra Chiang'
+  }).toArray().then((docs) => {
+    console.log('Todos');
+    console.log(JSON.stringify(docs, undefined, 2));
+  }, (err) => {
+    console.log('Unable to fetch Todos', err);
+  });
+
+  // db.collection('Todos').find().count().then((count) => {
+  //   console.log(`Todos count: ${count}`);
+  // }, (err) => {
+  //   console.log('Unable to fetch Todos', err);
+  // });
+
+
   // db.collection('Todos').insertOne({
   //   text: 'Something to do',
   //   completed: false
@@ -37,5 +62,5 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   //   console.log(result.ops[0]._id.getTimestamp());
   //   // console.log(JSON.stringify(result.ops, undefined, 2));
   // });
-  db.close();
+  // db.close();
 });
