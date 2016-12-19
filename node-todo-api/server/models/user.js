@@ -40,7 +40,6 @@ UserSchema.methods.toJSON = function () {
   return _.pick(userObject, ['_id', 'email']);
 };
 
-
 //instance methods use methods
 UserSchema.methods.generateAuthToken = function () {
   var user = this;
@@ -74,6 +73,27 @@ UserSchema.statics.findByToken = function (token) {
     '_id': decoded._id,
     'tokens.token': token,
     'tokens.access': 'auth'
+  });
+};
+
+UserSchema.statics.findByCredentials = function (email, password) {
+  var User = this;
+
+  return User.findOne({email}).then((user) => {
+    if (!user) {
+      return Promise.reject();
+    }
+
+    //bcrypt only supports callbacks
+    return new Promise((resolve, reject) => {
+      bcrypt.compare(password, user.password, (err, res) => {
+        if (res) {
+          resolve(user);
+        } else {
+          reject();
+        }
+      });
+    });
   });
 };
 
